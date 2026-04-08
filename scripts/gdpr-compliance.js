@@ -8,8 +8,6 @@
 =========================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("[GDPR] Script caricato");
-
   // ========== PARTE 1: MODALE PRIVACY POLICY (GLOBALE) ==========
 
   /**
@@ -239,7 +237,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Setup link Privacy Policy dal footer (tutte le pagine)
   // Selector 1: Cerca tutti gli elementi con classe privacy-policy-link
   const privacyLinks = document.querySelectorAll(".privacy-policy-link");
-  console.log("[GDPR] Found privacy links:", privacyLinks.length);
 
   if (privacyLinks.length > 0) {
     privacyLinks.forEach((link) => {
@@ -247,11 +244,8 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         const modal = createPrivacyModal();
         modal.classList.add("active");
-        console.log("[GDPR] Modale Privacy aperta dal footer");
       });
     });
-  } else {
-    console.log("[GDPR] Nessun link Privacy Policy trovato con .privacy-policy-link");
   }
 
   // Selector 2: Fallback esplicito per il footer su tutte le pagine
@@ -261,7 +255,6 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       const modal = createPrivacyModal();
       modal.classList.add("active");
-      console.log("[GDPR] Modale Privacy aperta dal footer (fallback selector)");
     });
     footerPrivacyLink._gdprListenerAdded = true;
   }
@@ -270,11 +263,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const contactForm = document.getElementById("contactForm");
   if (!contactForm) {
-    console.log("[GDPR] ContactForm non trovato - modale globale caricata per altre pagine");
     return;
   }
-
-  console.log("[GDPR] ContactForm trovato - eseguendo logica modulo contatti");
 
   const gdprSection = document.getElementById("gdprSection");
   const gdprCheckbox = document.getElementById("gdprCheckbox");
@@ -283,15 +273,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const privacyModal = document.getElementById("privacyModal");
   const modalCloseBtn = document.getElementById("modalCloseBtn");
   const modalCloseFooterBtn = document.getElementById("modalCloseFooterBtn");
-
-  console.log("[GDPR] Elementi form trovati:", {
-    contactForm: !!contactForm,
-    gdprSection: !!gdprSection,
-    gdprCheckbox: !!gdprCheckbox,
-    submitBtn: !!submitBtn,
-    privacyLink: !!privacyLink,
-    privacyModal: !!privacyModal,
-  });
 
   let privacyModalOpenedFromForm = false;
 
@@ -303,14 +284,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function initializeFormState() {
     const loggedIn = isUserLoggedIn();
-    console.log("[GDPR] initializeFormState - isLoggedIn:", loggedIn);
 
     if (loggedIn) {
-      console.log("[GDPR] Utente LOGGATO - nascondo gdprSection");
       gdprSection.style.display = "none";
       submitBtn.disabled = false;
     } else {
-      console.log("[GDPR] Utente NON LOGGATO - mostro gdprSection");
       gdprSection.style.display = "block";
       submitBtn.disabled = true;
       gdprCheckbox.checked = false;
@@ -318,20 +296,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function openPrivacyModalFromForm(openedFromForm = false) {
-    console.log("[GDPR] Apertura modale dal form (openedFromForm:", openedFromForm, ")");
     privacyModalOpenedFromForm = openedFromForm;
     privacyModal.classList.add("active");
   }
 
   function closePrivacyModalFromForm() {
-    console.log("[GDPR] Chiusura modale dal form");
     privacyModal.classList.remove("active");
 
     if (privacyModalOpenedFromForm) {
       gdprCheckbox.checked = true;
       submitBtn.disabled = false;
       privacyModalOpenedFromForm = false;
-      console.log("[GDPR] Checkbox spuntata e submit abilitato");
     }
   }
 
@@ -341,14 +316,12 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       submitBtn.disabled = !gdprCheckbox.checked;
     }
-    console.log("[GDPR] submitBtn.disabled:", submitBtn.disabled);
   }
 
   // === EVENT LISTENERS ===
 
   privacyLink.addEventListener("click", function (e) {
     e.preventDefault();
-    console.log("[GDPR] Click su link privacy nel form");
     openPrivacyModalFromForm(true);
   });
 
@@ -358,24 +331,20 @@ document.addEventListener("DOMContentLoaded", function () {
   if (footerPrivacyLink) {
     footerPrivacyLink.addEventListener("click", function (e) {
       e.preventDefault();
-      console.log("[GDPR] Click su Privacy Policy nel footer (durante modulo)");
       openPrivacyModalFromForm(false);
     });
   }
 
   modalCloseBtn.addEventListener("click", function () {
-    console.log("[GDPR] Click X modale");
     closePrivacyModalFromForm();
   });
 
   modalCloseFooterBtn.addEventListener("click", function () {
-    console.log("[GDPR] Click Chiudi modale");
     closePrivacyModalFromForm();
   });
 
   privacyModal.addEventListener("click", function (e) {
     if (e.target === privacyModal && !privacyModalOpenedFromForm) {
-      console.log("[GDPR] Click overlay modale");
       closePrivacyModalFromForm();
     }
   });
@@ -384,7 +353,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    console.log("[GDPR] Form submit");
 
     if (!isUserLoggedIn() && !gdprCheckbox.checked) {
       alert("Devi accettare l'informativa sulla privacy per continuare.");

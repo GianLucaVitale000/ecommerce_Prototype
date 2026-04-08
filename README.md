@@ -1,5 +1,10 @@
 # 🛍️ E-Commerce Prototype
 
+![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34C26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+
 Una moderna applicazione e-commerce full-stack costruita con PHP, JavaScript vanilla e CSS moderno. Questo progetto integra gestione del carrello, autenticazione utente, filtro prodotti e tema light/dark mode.
 
 **Status**: Prototype di produzione  
@@ -25,7 +30,7 @@ Una moderna applicazione e-commerce full-stack costruita con PHP, JavaScript van
 ## 🛠️ Stack tecnologico
 
 | Tecnologia | Utilizzo |
-|-----------|----------|
+| ----------- | ---------- |
 | **PHP 7.4+** | Backend, gestione sessioni, elaborazione checkout |
 | **MySQL/MariaDB** | (Pronto per integrazione) Database persistente |
 | **JavaScript ES6+** | Interattività frontend, gestione DOM |
@@ -38,7 +43,7 @@ Una moderna applicazione e-commerce full-stack costruita con PHP, JavaScript van
 
 ## 📁 Struttura del progetto
 
-```
+```Text
 ecommerce_Prototype/
 ├── index.php                    # Homepage principale
 ├── css/                         # Fogli di stile modularizzati
@@ -83,6 +88,7 @@ ecommerce_Prototype/
 ## 🚀 Quick Start
 
 ### Prerequisiti
+
 - **Server PHP**: 7.4 o superiore
 - **Server HTTP**: Apache o Nginx
 - **Browser**: Chrome, Firefox, Safari, Edge (versioni recenti)
@@ -90,22 +96,26 @@ ecommerce_Prototype/
 
 ### Installazione
 
-1. **Clona il repository** oppure estrai i file:
+A - **Clona il repository** oppure estrai i file:
+
 ```bash
-git clone https://github.com/tuousername/ecommerce-prototype.git
+git clone https://github.com/GianLucaVitale000/ecommerce-prototype.git
 cd ecommerce-Prototype
 ```
 
-2. **Configura il server locale**:
-   - Copia i file in una cartella servita dal tuo server PHP (es. `htdocs/` per XAMPP)
-   - Assicurati che PHP sia abilitato
+B - **Configura il server locale**:
 
-3. **Accedi all'applicazione**:
-```
+- Copia i file in una cartella servita dal tuo server PHP (es. `htdocs/` per XAMPP)
+- Assicurati che PHP sia abilitato
+
+C - **Accedi all'applicazione**:
+
+```Text
 http://localhost/ecommerce-Prototype/index.php
 ```
 
 ### Primo utilizzo
+
 - Clicca sul **menu hamburger** in alto a sinistra
 - Seleziona un prodotto per aggiungere al carrello
 - Il badge del carrello si aggiorna automaticamente
@@ -115,7 +125,7 @@ http://localhost/ecommerce-Prototype/index.php
 
 ## 📖 Documentazione
 
-- **[Installation Guide](./docs/INSTALLATION.md)** - Setup e configurazione (XAMPP, Docker, VPS)
+- **[Architecture](./docs/ARCHITECTURE.md)** - Architettura del progetto e design patterns
 - **[API Reference](./docs/API.md)** - Endpoint PHP, sessioni e strutture dati
 
 ---
@@ -123,21 +133,24 @@ http://localhost/ecommerce-Prototype/index.php
 ## 🔄 Flussi applicativi principali
 
 ### Flusso carrello
-```
-Selezione prodotto → add_to_cart() → $_SESSION['carrello'] → 
-updateCartIcons() → Badge aggiornato → Carrello disponibile se loggato
+
+```Text
+Selezione prodotto → POST form a carrello.php → Aggiorna $_SESSION['carrello'] → 
+Redirect → updateCartBadge() e updateCartIcons() → Badge aggiornato → Carrello disponibile se loggato
 ```
 
 ### Flusso autenticazione
-```
+
+```Text
 Login form → set_session.php → $_SESSION creata → localStorage['isLoggedIn']=true →
 Carrello attivo → Checkout disponibile
 ```
 
 ### Flusso tema
-```
-Toggle dark/dark → localStorage['theme'] → CSS attiva variabili --
-Salvataggio persistente tra sessioni
+
+```Text
+Toggle checkbox → setTheme() → localStorage['darkMode'] = true/false → 
+Applica classe .dark-mode a body → Salvataggio persistente tra sessioni
 ```
 
 ---
@@ -147,7 +160,7 @@ Salvataggio persistente tra sessioni
 ### Backend PHP
 
 | File | Funzione |
-|------|----------|
+| ------ | ---------- |
 | `data.php` | Definisce catalogo prodotti (mock array) |
 | `set_session.php` | Crea sessione utente al login |
 | `logout_session.php` | Distrugge sessione utente |
@@ -158,7 +171,7 @@ Salvataggio persistente tra sessioni
 ### Frontend JavaScript
 
 | File | Funzione |
-|------|----------|
+| ------ | ---------- |
 | `cart.js` | Sincronizzazione badge carrello con sessione PHP |
 | `menu.js` | Hamburger menu, login/logout, autenticazione |
 | `filterOverlay.js` | Filtri prodotti per categoria |
@@ -171,19 +184,40 @@ Salvataggio persistente tra sessioni
 ## 🎨 Tema e Customizzazione
 
 ### Dark Mode
+
 Il progetto supporta il toggle light/dark mode:
+
 - Default: Light mode
 - Toggle disponibile nella side menu
-- Salvataggio in `localStorage['theme']`
+- Salvataggio in `localStorage['darkMode']` come boolean (`true`/`false`)
+- Applica dinamicamente la classe CSS `.dark-mode` a `<body>`
 
-### Colori e variabili CSS
-Le variabili CSS sono definite in `css/style.css`:
+### Paletta colori del tema
+
+I colori sono definiti con selettori hardcoded in `css/style.css`:
+
+**Light Mode (default)**:
+
+- Background: `#ffffff` (bianco)
+- Testo: `#333333` (scuro)
+- Accent: `#666666` (grigio)
+
+**Dark Mode** (con classe `.dark-mode`):
 
 ```css
-:root {
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
-  /* ... altre variabili */
+body.dark-mode {
+  background: #181a1b;
+  color: #e0e0e0;
+}
+
+body.dark-mode .card,
+body.dark-mode .side-menu {
+  background: #23272b;
+  color: #e0e0e0;
+}
+
+body.dark-mode .footer-link:hover {
+  color: #ffd700;  /* gold hover effect */
 }
 ```
 
@@ -191,29 +225,48 @@ Le variabili CSS sono definite in `css/style.css`:
 
 ## 📱 Responsive Design
 
-| Breakpoint | Dispositivo |
-|-----------|-----------|
-| 320px-479px | Mobile piccolo |
-| 480px-767px | Mobile grande |
-| 768px-1023px | Tablet |
-| 1024px+ | Desktop |
+Il progetto utilizza un approccio **mobile-first** con i seguenti breakpoint effettivi:
+
+| Breakpoint | Dispositivo | Note |
+| ----------- | ----------- | --- |
+| **max-width: 600px** | Mobile | Font ridotto, layout compatto |
+| **min-width: 768px** | Tablet | Layout multi-colonna |
+| **max-width: 900px** | Tablet large / Mobile landscape | Overlay filtri, menu adattato |
+| **min-width: 1024px** | Desktop | Layout completo |
+
+**Strategie responsive implementate**:
+
+- Menu hamburger per schermi piccoli (`< 900px`)
+- Filtri overlay mobile (`max-width: 900px`)
+- Layout adattativo per footer e contenuti
+- Font size ottimizzato per readability su mobile
 
 ---
 
 ## 🔒 Sicurezza e privacy
 
-- **Sessioni PHP**: Token-based session management
-- **Input validation**: Server-side validation nei form
-- **XSS Protection**: Output escaping nei template
-- **CSRF**: Token protection nei form
-- **GDPR Compliant**: Modale privacy policy, validazione consenso privacy su form contatti
-- **Privacy Policy**: Informativa privacy completa accessibile da tutte le pagine
+**Misure di sicurezza implementate**:
+
+- **Sessioni PHP**: Gestione stato utente tramite `$_SESSION` server-side
+- **XSS Protection**: Output escaping con `htmlspecialchars()` nei template PHP per prevenire iniezioni di codice
+- **GDPR Compliant**:
+  
+  - Modale privacy policy globale accessibile da tutte le pagine
+  - Checkbox privacy sul modulo contatti (solo per non loggati)
+  - Informativa privacy completa in `html/privacy-policy.html`
+
+**Note di sicurezza**:
+
+- ⚠️ **Input validation limitata**: Attualmente usato solo `htmlspecialchars()` per l'escaping. Manca validazione server-side per email, telefono, lunghezza campi
+- ⚠️ **CSRF protection**: Non implementata (non sono presenti token CSRF nei form)
+- **Consiglio per produzione**: Prima di deployare in produzione, implementare validazione robusta con `filter_var()`, regex patterns, e CSRF token
 
 ---
 
 ## 🐛 Debugging e development
 
 ### Console del browser
+
 ```javascript
 // Verificare session status
 localStorage.getItem('isLoggedIn')
@@ -222,11 +275,13 @@ localStorage.getItem('isLoggedIn')
 window.PHP_CART_COUNT
 
 // Debug tema attivo
-localStorage.getItem('theme')
+localStorage.getItem('darkMode')
 ```
 
 ### PHP debug
+
 Aggiungi nel file desiderato:
+
 ```php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -251,17 +306,11 @@ ini_set('display_errors', 1);
 ## 📋 Requisiti di sistema
 
 | Requisito | Minimo | Consigliato |
-|-----------|--------|-----------|
+| ----------- | -------- | ----------- |
 | PHP | 7.4 | 8.1+ |
 | Browser | IE 11 | Chrome/Firefox latest |
 | RAM Server | 512MB | 2GB |
 | Storage | 50MB | 1GB |
-
----
-
-## 🤝 Contributing
-
-Per contribuire al progetto, apri una Pull Request con le tue modifiche.
 
 ---
 
@@ -273,19 +322,12 @@ Questo progetto è sotto licenza **MIT** - vedi il file [LICENSE](./LICENSE) per
 
 ## 👨‍💻 Autore
 
-**Gian Luca Vitale**
-- GitHub: [@yourusername]
-- Email: [your.email@example.com]
-- Data di creazione: Aprile 2026
+### Gian Luca Vitale
+
+- **GitHub**: [GianLucaVitale000](https://github.com/GianLucaVitale000)
+- **Email**: [gian.luca.vitale000@gmail.com](mailto:gian.luca.vitale000@gmail.com)
+- **Data di creazione**: Aprile 2026
 
 ---
 
-## 🆘 Support e Issues
-
-Riscontri bug o hai domande?
-- Apri un [GitHub Issue](https://github.com/yourusername/ecommerce-prototype/issues)
-- Consulta la [documentazione](./docs/INSTALLATION.md)
-
----
-
-**Sviluppato con ❤️ usando PHP, JavaScript e CSS vanilla**
+Sviluppato con ❤️ usando PHP, JavaScript e CSS vanilla
