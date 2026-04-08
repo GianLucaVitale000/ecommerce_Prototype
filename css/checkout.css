@@ -1,0 +1,91 @@
+/* ===========================================================
+   FILE: checkout.css
+   DESCRIZIONE: Stili pagina checkout
+   AUTORE: [Gian Luca Vitale] - DATA: [27/03/2026]
+=========================================================== */
+
+body.dark-mode {
+    background: #181b20 !important;
+}
+/* ===================== DARK MODE ===================== */
+body.dark-mode .container {
+    background: #23272f;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+body.dark-mode .form-group label {
+    color: #fff;
+}
+body.dark-mode .form-group input[type="text"] {
+    background: #181b20;
+    color: #fff;
+    border: 1px solid #444;
+}
+body.dark-mode input[type="submit"] {
+    background: #16a085;
+    color: #fff;
+}
+body.dark-mode .back-home {
+    color: #1abc9c;
+}
+body.dark-mode .success-message {
+    background: #1a2b22;
+    border: 1px solid #218c5a;
+    color: #b2f2d7;
+}
+body.dark-mode small {
+    color: #bdbdbd;
+}
+/* Stili base per la pagina di checkout */
+.container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.form-group {
+    margin-bottom: 18px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+input[type="submit"] {
+    background: #1abc9c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+input[type="submit"]:hover {
+    background: #16a085;
+}
+.back-home {
+    display: inline-block;
+    margin-top: 18px;
+    color: #1abc9c;
+    text-decoration: none;
+    font-weight: 500;
+}
+.success-message {
+    margin-top: 25px;
+    padding: 18px;
+    background: #eafaf1;
+    border: 1px solid #b2f2d7;
+    border-radius: 7px;
+    color: #218c5a;
+    font-size: 1.1em;
+    text-align: center;
+}

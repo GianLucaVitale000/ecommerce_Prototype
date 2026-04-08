@@ -1,0 +1,179 @@
+/* ===========================================================
+   FILE: style.css
+   DESCRIZIONE: Stili globali e base per il sito, inclusi reset, tipografia, layout generale, tema scuro e footer.
+   AUTORE: [Gian Luca Vitale] - DATA: [24/04/2026]
+=========================================================== */
+
+/* ================ RESET & BASE STYLES ================ */
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {    /*font-size: 62.5%;*/
+    scroll-behavior: smooth;
+}
+body {
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Montserrat', Tahoma, Verdana, sans-serif;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+h1, h2, h3, h4 {
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    /*color: #333;*/
+}
+h1 {
+    font-size: 2rem;
+}
+h2 {
+    font-size: 1.75rem;
+}
+h3 {
+    font-size: 1.50rem;
+}
+input, button, textarea, select {
+    font: inherit;
+}
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+}
+a:hover {
+    opacity: 0.7;
+}
+ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.back-home-btn {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+/* ================ BODY - tema scuro ================ */
+body.dark-mode {
+    background: #181a1b;
+    color: #e0e0e0;
+}
+body.dark-mode .footer,
+body.dark-mode .side-menu {
+    background: #23272b;
+    color: #e0e0e0;
+}
+body.dark-mode .footer-link,
+body.dark-mode .side-nav ul li a {
+    color: #e0e0e0;
+}
+body.dark-mode .footer-link:hover,
+body.dark-mode .side-nav ul li a:hover {
+    color: #ffd700;
+}
+body.dark-mode .card {
+    background: #23272b;
+    color: #e0e0e0;
+}
+body.dark-mode .hero-section {
+    background: #23272b;
+}
+body.dark-mode .hero-content h1,
+body.dark-mode .hero-content p {
+    color: #fff;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    background: #f7f7f7;
+    margin-top: 2em;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+}
+.footer-content {
+    text-align: center;
+    padding: 1em 0;
+    font-size: 0.95em;
+    color: #666;
+}
+.footer-link {
+    color: #666;
+    text-decoration: underline;
+    margin: 0 0.5em;
+    transition: color 0.2s;
+}
+.footer-link:hover {
+    color: #333;
+}
+
+/* =============================
+RESPONSIVE - MEDIA QUERIES
+================================*/
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    /*margin-right: -15px;
+    margin-left: -15px;*/
+}
+/* Mobile: riduci font footer */
+@media (max-width: 600px) {
+    .footer-content {
+        font-size: 0.75em;
+    }
+    .footer-link {
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+    .footer-content {
+        font-size: 0.75em;
+    }
+    .footer-link {
+        font-size: 0.85em;
+    }
+}
+
+
+/* Tablet */
+@media (min-width: 768px) {
+    .col-md-6 { width: 50%; }
+}
+/* Desktop */
+@media (min-width: 1024px) {
+    .col-lg-3 { width: 25%; }
+}
+/* Mobile Landscape */
+@media (max-width: 900px) and (orientation: landscape) {
+    .side-menu {
+        max-height: 100vh;
+        overflow-y: auto;
+    }
+    body {
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    .footer {
+        position: static !important;
+    }
+    .main-section {
+        padding-bottom: 3em;
+    }
+}

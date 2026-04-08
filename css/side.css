@@ -1,0 +1,220 @@
+
+
+/* ===========================================================
+   FILE: side.css
+   DESCRIZIONE: Stili per il menu laterale
+   AUTORE: [Gian Luca Vitale] - DATA: [24/04/2026]
+=========================================================== */
+
+/* ------------ SIDE MENU ----------------*/
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 270px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: 2px 0 16px rgba(0,0,0,0.08);
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5em 1.5em 1.5em 1.5em;
+}
+.side-menu.open {
+    transform: translateX(0);
+}
+/* ---- HEADER ---- */
+.side-header-flex {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 2em;
+}
+/* Logo */
+.side-logo-img {
+    height: 32px;
+    width: auto;
+    vertical-align: middle;
+    transition: filter 0.3s;
+}
+/* ----- NAVIGAZIONE ----- */
+.side-nav {
+    flex: 1 1 auto;
+}
+.side-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2em 0;
+}
+.side-nav ul li {
+    margin-bottom: 1.2em;
+}
+.side-nav ul li a {
+    color: #222;
+    font-size: 1.1em;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.side-nav ul li a:hover {
+    color: #36a1a0;
+}
+
+/* ------------ AZIONI LATERALI ------------ */
+.side-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    margin-top: auto;
+    padding-bottom: 1.5em;
+}
+.side-actions > div {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+}
+/* Avatar */
+#userAvatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    border: 2px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70% 70%;
+    margin: 0 auto 1em auto;
+}
+#userAvatar.placeholder {
+    background-color: #e0e0e0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="%23bdbdbd"><circle cx="24" cy="24" r="24" fill="%23e0e0e0"/><path d="M24 25.5c-4.14 0-7.5-3.36-7.5-7.5s3.36-7.5 7.5-7.5 7.5 3.36 7.5 7.5-3.36 7.5-7.5 7.5zm0 3c5.25 0 15.75 2.64 15.75 7.5V40H8.25v-4.5c0-4.86 10.5-7.5 15.75-7.5z"/></svg>');
+}
+#userAvatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+#userAvatar.logged-in {
+    background: none;
+    border-color: #1976d2;
+}
+/* Pulsante login */
+.btn-login {
+    padding: 0.5em 1.2em;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    background: #0077cc;
+    color: #fff;
+    transition: background 0.2s;
+    margin-bottom: 0.5em;
+}
+.btn-login:hover {
+    background: #005fa3;
+}
+/* Link di Registrazione */
+.register-link-wrapper {
+    text-align: center;
+}
+.register-text {
+    font-size: 0.95em;
+    color: #666;
+    display: block;
+}
+.register-link {
+    display: inline-block;
+    color: #1976d2;
+    text-decoration: underline;
+    margin-top: 0.2em;
+    font-size: 1em;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.register-link:hover {
+    color: #005fa3;
+}
+body.dark-mode .register-link { color: #1976d2; }
+/* Icona  logout */
+#logoutIcon {
+    font-size: 24px;
+    color: #bdbdbd;
+    transition: color 0.2s;
+    vertical-align: middle;
+    line-height: 1;
+    cursor: pointer;
+    display: none;
+    margin-left: auto;
+    margin-right: 0;
+}
+#logoutIcon.visible {
+    display: inline-block;
+}
+#logoutIcon:hover {
+    color: #d32f2f;
+}
+.logout-icon-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1.2em;
+    padding-right: 0.5em;
+}
+
+@media (max-width: 600px) {
+    .side-menu {
+        width: 80vw;
+        padding: 2em 1em 1em 1em;
+    }
+    .hamburger {
+        right: 16px;
+        top: 16px;
+    }
+}
+
+/* FILTRO CATEGORIA nell'aside (solo pagina home) */
+#filtroFormAside {
+    margin-top: 1.5em;
+    padding: 1.2em 0 0.5em 0;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+#filtroFormAside label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+#categoria-aside {
+    padding: 7px 10px;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    font-size: 1em;
+    background: #fff;
+    color: #222;
+    margin-top: 2px;
+}
+body.dark-mode #filtroFormAside label {
+    color: #fff;
+}
+body.dark-mode #categoria-aside {
+    background: #181b20;
+    color: #fff;
+    border: 1px solid #444;
+}

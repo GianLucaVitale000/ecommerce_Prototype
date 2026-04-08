@@ -1,0 +1,91 @@
+/* ===========================================================
+   FILE: cards.css
+   DESCRIZIONE: Stili per le card del sito
+   AUTORE: [Gian Luca Vitale] - DATA: [24/04/2026]
+=========================================================== */
+
+/* Container principale */
+.card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px; /* Spazio tra le card */
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 20px 100px 20px;
+    max-width: 980px;
+    width: 100%;
+    margin: 0 auto;
+    height: 540px; /* 2 file di card + gap + padding */
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #bdbdbd #f7f7f7;
+}
+/* Stile della singola Card */
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Taglia l'immagine se sporge dai bordi arrotondati */
+    width: 300px; /* Larghezza fissa per desktop */
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px); /* Effetto sollevamento al passaggio del mouse */
+}
+/* Immagine */
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Mantiene le proporzioni senza schiacciare l'immagine */
+}
+/* Contenuto testuale */
+.card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.card-title {
+    margin: 0 0 10px 0;
+    font-size: 1.25rem;
+    color: #333;
+}
+body.dark-mode .card-title {
+    color: #fff !important;
+}
+.card-text {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;/* permette al testo di occupare lo spazio disponibile */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 15px;
+}
+/* Link */
+.card-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    align-self: flex-start;
+}
+.card-link:hover {
+    color: #005fa3;
+}

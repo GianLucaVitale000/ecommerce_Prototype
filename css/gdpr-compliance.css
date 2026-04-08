@@ -1,0 +1,205 @@
+/* ===========================================================
+   FILE: gdpr-compliance.css
+   DESCRIZIONE: Stili per la conformità GDPR
+   - Checkbox wrapper
+   - Modale privacy policy
+   - Label wrapper
+=========================================================== */
+
+/* GDPR Label Wrapper */
+.gdpr-label-wrapper {
+  margin-bottom: 1.5em;
+  font-size: 0.95rem;
+}
+
+.gdpr-label-text {
+  cursor: text;
+  user-select: text;
+}
+
+.gdpr-label-text a {
+  color: var(--link-color, #007bff);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.gdpr-label-text a:hover {
+  opacity: 0.8;
+}
+
+/* GDPR Checkbox Wrapper */
+.gdpr-checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1em;
+  font-size: 0.95rem;
+}
+
+.gdpr-checkbox-wrapper input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.gdpr-checkbox-wrapper input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.gdpr-checkbox-wrapper a {
+  color: var(--link-color, #007bff);
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.gdpr-checkbox-wrapper a:hover {
+  text-decoration: underline;
+}
+
+.gdpr-checkbox-text {
+  cursor: text;
+  user-select: text;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: var(--bg-color, #fff);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-color, #333);
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  flex-shrink: 0;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color, #333);
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close-btn:hover {
+  opacity: 0.7;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal-body h3 {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-body h3:first-child {
+  margin-top: 0;
+}
+
+.modal-body p,
+.modal-body ul {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.modal-body ul {
+  margin-left: 1.5rem;
+}
+
+/* Modal Footer */
+.modal-footer {
+  padding: 1.5rem;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.modal-footer button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-close-modal {
+  background-color: var(--primary-color, #007bff);
+  color: white;
+}
+
+.btn-close-modal:hover {
+  opacity: 0.9;
+}
+
+/* Disabled button state */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Dark mode support */
+body.dark-mode .modal-content {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark-mode .modal-header {
+  border-bottom-color: #333;
+}
+
+body.dark-mode .modal-footer {
+  border-top-color: #333;
+}

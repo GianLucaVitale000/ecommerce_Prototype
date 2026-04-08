@@ -1,0 +1,119 @@
+# IDE e editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.sublime-workspace
+.sublime-project
+
+# OS files
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# Dependency files
+node_modules/
+vendor/
+composer.lock
+package-lock.json
+yarn.lock
+
+# Build e dist
+dist/
+build/
+.next/
+out/
+*.egg-info/
+__pycache__/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.production
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+error.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+.cache/
+
+# Testing
+coverage/
+.nyc_output/
+.mocha_output/
+test-results/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+*.sql
+
+# Backup
+*.backup
+*.bak
+database.sql
+database.sql.gz
+
+# Cache
+.eslintcache
+.stylelintcache
+.cache
+.parcel-cache
+
+# Local development overrides
+local.php
+config.local.php
+.htaccess.local
+
+# Uploads (when implemented)
+uploads/
+user_files/
+temp_uploads/
+
+# OS-specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+
+# IDE-specific
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Keep gitkeep files for empty directories
+!.gitkeep
+
+# But ignore everything in these directories
+node_modules/*
+!node_modules/.gitkeep
+
+vendor/*
+!vendor/.gitkeep
+
+# This is for when you have demo data that shouldn't be committed
+data/demo-*.json
+database-dump-*.sql

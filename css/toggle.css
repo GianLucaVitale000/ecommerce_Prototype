@@ -1,0 +1,115 @@
+/* ===========================================================
+     FILE: toggle.css
+     DESCRIZIONE: Stili per il toggle della modalità chiara/oscura
+     AUTORE: [Gian Luca Vitale] - DATA: [24/04/2026]
+=========================================================== */
+
+/* 1 - Contenitore del toggle e del logo nella sidebar 
+Allinea logo a sinistra e toggle a destra, centrati verticalmente. */
+.side-toggle-theme {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0;
+    min-width: 0;
+}
+
+/* 2 - Switch principale (label) 
+È il label che contiene tutto il toggle. Imposta dimensioni e rende il cursore “pointer” (mano) */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    cursor: pointer;
+}
+/* 3 - Nasconde la checkbox nativa
+La checkbox HTML è nascosta (display: none) perché usiamo l'elemento grafico del toggle */
+#toggleTheme {
+    display: none;
+}
+
+/* 4 - Slider unchecked (modalità chiara)
+È lo sfondo base dello switch, su cui si muove il pallino  */
+.toggle-switch .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 44px;
+    height: 24px;
+    background: #e0e0e0;
+    border-radius: 24px;
+    transition: background 0.2s;
+}
+/* 5 - Toggle unchecked (modalità chiara)
+Il thumb sta a sinistra */
+.slider .thumb {
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    transition: transform 0.2s, background 0.2s;
+    z-index: 2;
+}
+
+/* 6 - toggle checked (modalità scura)
+Il thumb si è spostato a destra */
+#toggleTheme:checked + .toggle-switch .slider .thumb {
+    transform: translateX(20px);
+    
+}
+/* 6.1 - Modalità scura (slider)
+lo slider assume un colore diverso */
+body.dark-mode #toggleTheme:checked + .toggle-switch .slider {
+    background: #ffd700;
+}
+/* 6.2 - Modalità scura (thumb) 
+Il thumb assume un colore diverso */
+body.dark-mode #toggleTheme:checked + .toggle-switch .slider .thumb {
+    background: #222;
+}
+
+/* ==================== ICONE ====================== */
+
+/* 7.0 - Posizionamento icone all'interno dello slider */
+#toggleTheme + .toggle-switch .slider .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #222;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: 1;
+    opacity: 0;
+}
+/* 7.1 - Icona per modalità chiara (sole) a sinistra */
+#toggleTheme + .toggle-switch .slider .icon-light {
+    right: 6px;
+    left: auto;
+}
+/* 7.2 - Icona per modalità scura (luna) a destra */
+#toggleTheme + .toggle-switch .slider .icon-dark {
+    left: 6px;
+    right: auto;
+}
+/* 7.3 - Visibilità dell'icona per la modalità chiara
+Mostra il sole quando il toggle è spento */
+#toggleTheme:not(:checked) + .toggle-switch .slider .icon-light {
+    opacity: 1;
+}
+/* 7.4 - Visibilità dell'icona per la modalità scura
+Mostra la luna quando il toggle è acceso */
+#toggleTheme:checked + .toggle-switch .slider .icon-dark {
+    opacity: 1;
+}
+
+
+
+
+

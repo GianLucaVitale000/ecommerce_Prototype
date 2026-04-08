@@ -1,0 +1,173 @@
+/* ===========================================================
+   FILE: dettaglio.css
+   DESCRIZIONE: Stili per la pagina di dettaglio del prodotto
+   AUTORE: [Gian Luca Vitale] - DATA: [24/04/2026]
+=========================================================== */
+
+* {
+	box-sizing: border-box;
+}
+
+.main-section {
+    background: #fff;
+    color: #222;
+}
+body.dark-mode .main-section {
+    background: #181a1b;
+    color: #e0e0e0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 40px 20px;
+}
+
+.dettaglio-container {
+	max-width: 800px;
+	width: 100%;
+	background: #ffffff;
+	padding: 40px;
+	border-radius: 12px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.dettaglio-container h1 {
+	margin: 0 0 30px;
+	color: #1f2937;
+	font-size: 32px;
+	text-align: center;
+}
+
+.dettaglio-content {
+	display: flex;
+	gap: 30px;
+	margin-bottom: 30px;
+}
+
+.dettaglio-image {
+	flex: 1;
+	max-width: 400px;
+}
+
+.dettaglio-image img {
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dettaglio-info {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.dettaglio-info p {
+	color: #4b5563;
+	line-height: 1.6;
+	margin: 0 0 20px;
+	font-size: 16px;
+}
+
+.dettaglio-price {
+	font-size: 28px;
+	font-weight: bold;
+	color: #16a34a;
+	margin: 20px 0 !important;
+}
+
+.dettaglio-actions {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+	margin-top: 30px;
+}
+
+.dettaglio-actions button {
+	padding: 12px 24px;
+	border: none;
+	border-radius: 6px;
+	background: #2563eb;
+	color: #ffffff;
+	font-weight: 600;
+	font-size: 14px;
+	cursor: pointer;
+	transition: background 0.3s;
+}
+
+.dettaglio-actions button:hover {
+	background: #1d4ed8;
+}
+
+.dettaglio-actions a {
+	padding: 12px 24px;
+	border: 1px solid #e5e7eb;
+	border-radius: 6px;
+	background: #ffffff;
+	color: #4b5563;
+	font-weight: 600;
+	font-size: 14px;
+	text-decoration: none;
+	transition: all 0.3s;
+	text-align: center;
+	display: inline-block;
+}
+
+.dettaglio-actions a:hover {
+	background: #f3f4f6;
+	border-color: #d1d5db;
+}
+
+.dettaglio-actions .login-button {
+	background: #ea580c;
+	color: #ffffff;
+	border: none;
+}
+
+.dettaglio-actions .login-button:hover {
+	background: #c2410c;
+}
+
+.back-home-btn {
+    color: #1976d2;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+	margin-top: 10px;
+}
+.back-home-btn:hover, .back-home-btn:focus {
+    color: #0d47a1;
+	
+}
+
+@media (max-width: 768px) {
+	.dettaglio-content {
+		flex-direction: column;
+	}
+	
+	.dettaglio-image {
+		max-width: 100%;
+	}
+	
+	.dettaglio-actions {
+		flex-direction: column;
+	}
+	
+	.dettaglio-actions button,
+	.dettaglio-actions a {
+		width: 100%;
+		text-align: center;
+	}
+}

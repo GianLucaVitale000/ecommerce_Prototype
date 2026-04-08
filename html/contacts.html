@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Contatti</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contatti - Hai domande o vuoi richiedere un preventivo? Contattaci tramite il nostro modulo di contatto o inviaci una mail. Siamo qui per aiutarti!">
+  <meta name="robots" content="Contatti, Modulo di contatto, Email, Richiesta preventivo">
+  <link href="../css/style.css" rel="stylesheet">
+  <link href="../css/hamburger.css" rel="stylesheet">
+  <link href="../css/toggle.css" rel="stylesheet">
+  <link href="../css/side.css" rel="stylesheet">
+  <link href="../css/gdpr-compliance.css" rel="stylesheet">
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="/img/logoipsum-365.png">
+  <link rel="shortcut icon" href="/img/logoipsum-365.png">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  <!-- Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+  <!-- Header -->
+  <!-- Logo -->
+  <a href="../index.php" aria-label="Home">
+    <img src="../img/logoipsum-365.png" alt="Logo" class="logo-img" />
+  </a>
+  <!-- Hamburger Button -->
+  <button class="hamburger" aria-label="Apri menu di navigazione">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <!-- Side Menu -->
+  <aside class="side-menu" id="sideMenu">
+      <div class="side-header-flex">
+        <a href="../index.php" aria-label="Home">
+          <img id="logo-img" src="../img/logoipsum-365.png" alt="Logo" class="side-logo-img" />
+        </a>
+        <div class="side-toggle-theme">
+          <input type="checkbox" id="toggleTheme" class="theme-checkbox" />
+          <label for="toggleTheme" class="toggle-switch">
+            <span class="slider">
+              <span class="thumb"></span>
+              <span class="material-symbols-outlined icon icon-dark">dark_mode</span>
+              <span class="material-symbols-outlined icon icon-light">sunny</span>
+            </span>
+          </label>
+        </div>
+      </div>
+      <nav class="side-nav">
+        <ul>
+          <li><a href="about.html">Chi siamo</a></li>
+          <li><a href="services.html">Servizi</a></li>
+          <li><a href="contacts.html">Contatti</a></li>
+          <li><a href="#" class="cart-icon-aside cart-disabled" title="Effettua il login">
+            <span class="material-symbols-outlined">shopping_cart</span>
+            <span class="cart-badge">0</span>
+          </a></li>
+        </ul>
+      </nav>
+      <div class="side-actions">
+        <div class="user-avatar-wrapper">
+          <div class="user-avatar" id="userAvatar"></div>
+        </div>
+        <button class="btn-login" id="loginBtn">Login</button>
+        <div class="register-link-wrapper">
+          <span class="register-text">Non hai un account?</span>
+          <a href="#" class="register-link">Registrati</a>
+        </div>
+        <div class="logout-icon-wrapper">
+          <span class="material-symbols-outlined logout-icon" id="logoutIcon" title="Logout">logout</span>
+        </div>
+      </div>
+    </aside>
+  </header>
+  
+  <!-- Main Content -->
+  <main class="main-section" style="min-height: 80vh; display: flex; align-items: center; justify-content: center; margin-top: 56px;">
+    <section style="max-width: 600px; text-align: center;">
+      <h1>Contattaci</h1>
+      <p>Hai domande o vuoi richiedere un preventivo? Compila il modulo qui sotto o scrivici una mail. Saremo felici di risponderti il prima possibile!</p>
+      <form id="contactForm" style="margin-top:2em; text-align:left; display:inline-block; width:100%; max-width:400px;">
+        <label for="name">Nome:</label><br>
+        <input type="text" id="name" name="name" style="width:100%; margin-bottom:1em;" required><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" style="width:100%; margin-bottom:1em;" required><br>
+        <label for="message">Messaggio:</label><br>
+        <textarea id="message" name="message" rows="4" style="width:100%; margin-bottom:1em;" required></textarea><br>
+        
+        <!-- GDPR Compliance Section -->
+        <div id="gdprSection" style="display: none;">
+          <!-- Label visibile inizialmente -->
+          <div id="gdprLabelWrapper" class="gdpr-label-wrapper">
+            <label class="gdpr-label-text">
+              Prima di inviare leggi l'
+              <a href="#" id="privacyLink" title="Leggi l'informativa sulla privacy">informativa sulla privacy</a>
+            </label>
+          </div>
+          <!-- Checkbox visibile dopo aver letto la privacy -->
+          <div id="gdprCheckboxWrapper" class="gdpr-checkbox-wrapper" style="display: none;">
+            <input type="checkbox" id="gdprCheckbox" name="gdpr" disabled />
+            <label for="gdprCheckbox" class="gdpr-checkbox-text">
+              Ho letto l'informativa sulla privacy
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" id="submitBtn" style="width:40%; position:relative; left:30%;">Invia</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Privacy Policy Modal -->
+  <div class="modal-overlay" id="privacyModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Informativa sulla Privacy</h2>
+        <button type="button" class="modal-close-btn" id="modalCloseBtn">&times;</button>
+      </div>
+      <div class="modal-body" id="privacyModalContent">
+        <!-- Privacy policy content will be loaded here via AJAX or embedded -->
+        <h3>Titolare del Trattamento</h3>
+        <p>Il titolare del trattamento dei dati personali è [Nome Azienda], con sede in [Indirizzo].</p>
+
+        <h3>Finalità del Trattamento</h3>
+        <p>I dati personali raccolti tramite il nostro sito web vengono trattati per le seguenti finalità:</p>
+        <ul>
+          <li>Rispondere alle richieste di contatto inviate tramite il modulo contatti</li>
+          <li>Fornire i servizi richiesti</li>
+          <li>Inviare comunicazioni relative alle tue richieste</li>
+          <li>Adempiere obblighi legali e normativi</li>
+          <li>Proteggere i diritti, la privacy e la sicurezza di utenti e del sito</li>
+        </ul>
+
+        <h3>Base Legale del Trattamento</h3>
+        <p>Il trattamento dei tuoi dati personali è basato su:</p>
+        <ul>
+          <li><strong>Consenso esplicito</strong> – Quando fornisci i tuoi dati tramite il modulo contatti, accetti esplicitamente il trattamento mediante questa informativa.</li>
+          <li><strong>Esecuzione di un contratto</strong> – Quando effettui l'iscrizione al nostro servizio e fornisci i dati necessari.</li>
+          <li><strong>Obblighi legali</strong> – Conformità a leggi e normative applicabili.</li>
+        </ul>
+
+        <h3>Dati Personali Raccolti</h3>
+        <p>A seconda del contesto, raccogliamo i seguenti dati:</p>
+        <ul>
+          <li>Nome e cognome</li>
+          <li>Indirizzo email</li>
+          <li>Numero di telefono (se fornito)</li>
+          <li>Messaggi e contenuti inviati tramite il modulo contatti</li>
+          <li>Dati di navigazione (IP, browser, dispositivo)</li>
+        </ul>
+
+        <h3>Periodo di Conservazione</h3>
+        <p>I dati personali vengono conservati per il periodo necessario a raggiungere le finalità dichiarate. In generale: Dati da modulo contatti: 3 anni dal ricevimento.</p>
+
+        <h3>Diritti dell'Interessato</h3>
+        <p>Ai sensi del Regolamento (UE) 2016/679 (GDPR), hai diritto a:</p>
+        <ul>
+          <li>Diritto di accesso</li>
+          <li>Diritto di rettifica</li>
+          <li>Diritto di cancellazione</li>
+          <li>Diritto di limitazione del trattamento</li>
+          <li>Diritto alla portabilità dei dati</li>
+          <li>Diritto di opposizione</li>
+        </ul>
+        <p>Per esercitare questi diritti, contattaci a: privacy@example.com</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-close-modal" id="modalCloseFooterBtn">Chiudi</button>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      &copy; 2026 Tutti i diritti riservati. |
+      <a href="#" class="footer-link">Cookie Policy</a> |
+      <a href="#" class="footer-link privacy-policy-link">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script src="/scripts/menu.js"></script>
+  <script src="/scripts/cart.js"></script>
+  <script src="/scripts/gdpr-compliance.js"></script>
+  
+  <!-- GDPR Compliance Script (Inline - Modale modulo specifico) -->
+  <script>
+    /* GDPR Compliance - Modulo Contatti */
+    document.addEventListener("DOMContentLoaded", function () {
+      console.log("[GDPR] Script caricato - DOMContentLoaded");
+      
+      // === ELEMENTI DEL DOM ===
+      const contactForm = document.getElementById("contactForm");
+      const gdprSection = document.getElementById("gdprSection");
+      const gdprLabelWrapper = document.getElementById("gdprLabelWrapper");
+      const gdprCheckboxWrapper = document.getElementById("gdprCheckboxWrapper");
+      const gdprCheckbox = document.getElementById("gdprCheckbox");
+      const submitBtn = document.getElementById("submitBtn");
+      const privacyLink = document.getElementById("privacyLink");
+      const privacyModal = document.getElementById("privacyModal");
+      const modalCloseBtn = document.getElementById("modalCloseBtn");
+      const modalCloseFooterBtn = document.getElementById("modalCloseFooterBtn");
+
+      console.log("[GDPR] Elementi trovati:", {
+        contactForm: !!contactForm,
+        gdprSection: !!gdprSection,
+        gdprLabelWrapper: !!gdprLabelWrapper,
+        gdprCheckboxWrapper: !!gdprCheckboxWrapper,
+        gdprCheckbox: !!gdprCheckbox,
+        submitBtn: !!submitBtn,
+        privacyLink: !!privacyLink,
+        privacyModal: !!privacyModal,
+        modalCloseBtn: !!modalCloseBtn,
+        modalCloseFooterBtn: !!modalCloseFooterBtn
+      });
+
+      // === VARIABILI DI STATO ===
+      let privacyModalOpenedFromForm = false;
+
+      // === FUNZIONI UTILI ===
+
+      /**
+       * Verifica se l'utente è loggato
+       */
+      function isUserLoggedIn() {
+        return localStorage.getItem("isLoggedIn") === "true";
+      }
+
+      /**
+       * Inizializza lo stato del form in base al login
+       */
+      function initializeFormState() {
+        const loggedIn = isUserLoggedIn();
+        console.log("[GDPR] initializeFormState - isLoggedIn:", loggedIn);
+        console.log("[GDPR] localStorage.getItem('isLoggedIn'):", localStorage.getItem('isLoggedIn'));
+        
+        if (loggedIn) {
+          console.log("[GDPR] Utente LOGGATO - nascondo gdprSection");
+          gdprSection.style.display = "none";
+          submitBtn.disabled = false;
+        } else {
+          console.log("[GDPR] Utente NON LOGGATO - mostro gdprSection");
+          gdprSection.style.display = "block";
+          gdprCheckboxWrapper.style.display = "none"; // Checkbox HIDDEN inizialmente
+          submitBtn.disabled = true;
+          gdprCheckbox.checked = false;
+        }
+      }
+
+      /**
+       * Apri la modale della privacy policy
+       */
+      function openPrivacyModal(openedFromForm = false) {
+        console.log("[GDPR] Apertura modale (openedFromForm:", openedFromForm, ")");
+        privacyModalOpenedFromForm = openedFromForm;
+        privacyModal.classList.add("active");
+      }
+
+      /**
+       * Chiudi la modale della privacy policy
+       */
+      function closePrivacyModal() {
+        console.log("[GDPR] Chiusura modale - privacyModalOpenedFromForm:", privacyModalOpenedFromForm);
+        privacyModal.classList.remove("active");
+
+        if (privacyModalOpenedFromForm) {
+          // Nascondi la label "Prima di inviare..."
+          gdprLabelWrapper.style.display = "none";
+          // Mostra il checkbox wrapper
+          gdprCheckboxWrapper.style.display = "flex";
+          // Flagga il checkbox (disabled non consente di modificarlo)
+          gdprCheckbox.checked = true;
+          // Abilita il submit
+          submitBtn.disabled = false;
+          privacyModalOpenedFromForm = false;
+          console.log("[GDPR] Label scomparsa, Checkbox VISIBILE, FLAGGATO e DISABLED, submit abilitato");
+        }
+      }
+
+      /**
+       * Aggiorna lo stato del pulsante submit
+       */
+      function updateSubmitButtonState() {
+        if (isUserLoggedIn()) {
+          submitBtn.disabled = false;
+        } else {
+          submitBtn.disabled = !gdprCheckbox.checked;
+        }
+        console.log("[GDPR] submitBtn.disabled:", submitBtn.disabled);
+      }
+
+      // === EVENT LISTENERS ===
+
+      privacyLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        console.log("[GDPR] Click sul link privacy (dal form)");
+        openPrivacyModal(true);
+      });
+
+      // Link Privacy Policy nel footer
+      const footerPrivacyLink = document.querySelector("footer .privacy-policy-link");
+      if (footerPrivacyLink) {
+        footerPrivacyLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          console.log("[GDPR] Click sul link Privacy Policy nel footer");
+          openPrivacyModal(false); // openedFromForm = false
+        });
+      }
+
+      modalCloseBtn.addEventListener("click", function() {
+        console.log("[GDPR] Click sul X della modale");
+        closePrivacyModal();
+      });
+
+      modalCloseFooterBtn.addEventListener("click", function() {
+        console.log("[GDPR] Click su Chiudi (footer modale)");
+        closePrivacyModal();
+      });
+
+      privacyModal.addEventListener("click", function (e) {
+        if (e.target === privacyModal && !privacyModalOpenedFromForm) {
+          console.log("[GDPR] Click sull'overlay (chiusura)");
+          closePrivacyModal();
+        }
+      });
+
+      gdprCheckbox.addEventListener("change", updateSubmitButtonState);
+
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        console.log("[GDPR] Form submit");
+
+        if (!isUserLoggedIn() && !gdprCheckbox.checked) {
+          alert("Devi accettare l'informativa sulla privacy per continuare.");
+          return;
+        }
+
+        const formData = {
+          name: document.getElementById("name").value.trim(),
+          email: document.getElementById("email").value.trim(),
+          message: document.getElementById("message").value.trim(),
+          gdprConsent: isUserLoggedIn() ? true : gdprCheckbox.checked,
+        };
+
+        console.log("[GDPR] Form data:", formData);
+        alert("Grazie per il tuo messaggio! Ti contatteremo presto.\n(Implementazione backend da aggiungere)");
+
+        contactForm.reset();
+        updateSubmitButtonState();
+      });
+
+      window.addEventListener("storage", function (e) {
+        if (e.key === "isLoggedIn") {
+          console.log("[GDPR] Cambio stato login rilevato");
+          initializeFormState();
+        }
+      });
+
+      // === INIZIALIZZAZIONE ===
+      console.log("[GDPR] Eseguendo inizializzazione...");
+      initializeFormState();
+      console.log("[GDPR] gdprSection.style.display:", gdprSection.style.display);
+      console.log("[GDPR] Inizializzazione completata");
+    });
+  </script>
+</body>
+</html>

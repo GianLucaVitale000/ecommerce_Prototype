@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Servizi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="I nostri servizi - Scopri le soluzioni che offriamo per aiutare i tuoi progetti digitali a raggiungere il successo. Siti web, e-commerce, web app e molto altro.">
+  <meta name="robots" content="Servizi, Siti web, E-commerce, Web app">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/hamburger.css">
+  <link rel="stylesheet" href="../css/toggle.css">
+  <link rel="stylesheet" href="../css/side.css">
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="/img/logoipsum-365.png">
+  <link rel="shortcut icon" href="/img/logoipsum-365.png">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  <!-- Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+  <!-- Header -->
+  <a href="../index.php" aria-label="Home">
+    <img src="../img/logoipsum-365.png" alt="Logo" class="logo-img" />
+  </a>
+  <!-- Hamburger Button -->
+  <button class="hamburger" aria-label="Apri menu di navigazione">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  
+  <!-- Side Menu -->
+  <aside class="side-menu" id="sideMenu">
+      <div class="side-header-flex" style="display:flex;align-items:center;gap:1em;margin-bottom:2em;">
+        <a href="../index.php" aria-label="Home">
+          <img id="logo-img" src="../img/logoipsum-365.png" alt="Logo" class="side-logo-img" />
+        </a>
+        <div class="side-toggle-theme">
+          <input type="checkbox" id="toggleTheme" class="theme-checkbox" />
+          <label for="toggleTheme" class="toggle-switch">
+            <span class="slider">
+              <span class="thumb"></span>
+              <span class="material-symbols-outlined icon icon-dark">dark_mode</span>
+              <span class="material-symbols-outlined icon icon-light">sunny</span>
+            </span>
+          </label>
+        </div>
+      </div>
+      <nav class="side-nav">
+        <ul>
+          <li><a href="about.html">Chi siamo</a></li>
+          <li><a href="services.html">Servizi</a></li>
+          <li><a href="contacts.html">Contatti</a></li>
+           <li><a href="#" class="cart-icon-aside cart-disabled" title="Effettua il login">
+             <span class="material-symbols-outlined">shopping_cart</span>
+             <span class="cart-badge">0</span>
+           </a></li>
+        </ul>
+      </nav>
+      <div class="side-actions">
+        <div class="user-avatar-wrapper">
+          <div class="user-avatar" id="userAvatar"></div>
+        </div>
+        <button class="btn-login" id="loginBtn">Login</button>
+        <div class="register-link-wrapper">
+          <span class="register-text">Non hai un account?</span>
+          <a href="#" class="register-link">Registrati</a>
+        </div>
+        <div class="logout-icon-wrapper">
+          <span class="material-symbols-outlined logout-icon" id="logoutIcon" title="Logout">logout</span>
+        </div>
+      </div>
+    </aside>
+  </header>
+
+  <main class="main-section" style="min-height: 80vh; display: flex; align-items: center; justify-content: center; margin-top: 56px;">
+    <section style="max-width: 600px; text-align: center;">
+      <h1>I nostri servizi</h1>
+      <p>Offriamo consulenza, sviluppo web, design UI/UX, ottimizzazione SEO e supporto tecnico. Ogni servizio è pensato per aiutare i nostri clienti a raggiungere i loro obiettivi digitali con soluzioni moderne e personalizzate.</p>
+      <ul style="margin-top:2em; text-align:left; display:inline-block;">
+        <li>✔️ Siti web responsive</li>
+        <li>✔️ E-commerce</li>
+        <li>✔️ Web app personalizzate</li>
+        <li>✔️ Restyling grafico</li>
+        <li>✔️ Consulenza e formazione</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      &copy; 2026 Tutti i diritti riservati. |
+      <a href="#" class="footer-link">Cookie Policy</a> |
+      <a href="#" class="footer-link privacy-policy-link">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script src="/scripts/menu.js"></script>
+  <script src="/scripts/cart.js"></script>
+  <script src="/scripts/gdpr-compliance.js"></script>
+</body>
+</html>

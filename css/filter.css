@@ -1,0 +1,194 @@
+/* ===========================================================
+   FILE: filter.css
+   DESCRIZIONE: Stili pagina filtro
+   AUTORE: [Gian Luca Vitale] - DATA: [27/03/2026]
+=========================================================== */
+
+/* Filtro mobile/landscape UX */
+.mobile-filter-btn {
+    display: none;
+}
+.filter-overlay {
+    display: none;
+}
+@media (max-width: 900px) {
+    .filter-sidebar {
+        display: none !important;
+    }
+    .mobile-filter-btn {
+        display: block !important;
+        width: 45vw;
+        max-width: 170px;
+        margin: 12px auto 0 auto;
+        background: #1abc9c;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-size: 1.1em;
+        padding: 10px 0;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        transition: background 0.2s;
+        z-index: 1100;
+        position: relative;
+    }
+    .mobile-filter-btn:hover {
+        background: #159c82;
+    }
+    .filter-overlay {
+        display: flex !important;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.32);
+        z-index: 2000;
+        align-items: center;
+        justify-content: center;
+    }
+}
+/* Overlay filtro mobile solo select */
+.filter-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.32);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+.filter-select-modal {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    padding: 28px 22px 22px 22px;
+    min-width: 220px;
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+}
+@media (max-width: 600px) {
+    .filter-select-modal {
+        min-width: 0;
+        width: 96vw;
+        padding: 18px 6vw 18px 6vw;
+    }
+}
+body.dark-mode .filter-select-modal {
+    background: #23272f;
+    color: #fff;
+}
+body.dark-mode .filter-select-modal select {
+    background: #181b20;
+    color: #fff;
+    border: 1px solid #444;
+}
+/* Overlay filtro mobile */
+.mobile-filter-btn {
+    display: none;
+    align-items: center;
+    gap: 4px;
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 1001;
+    padding: 7px 14px;
+    font-size: 1em;
+    border-radius: 6px;
+    border: none;
+    background: #1abc9c;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .mobile-filter-btn {
+        display: flex;
+    }
+    .filter-sidebar[style*="position: fixed"] {
+        background: #f7f7f7;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+        border-radius: 0 0 0 16px;
+        padding: 24px 18px 18px 18px;
+        width: 88vw !important;
+        max-width: 340px !important;
+        min-width: 0;
+        height: 100vh !important;
+        top: 0 !important;
+        right: 0 !important;
+        left: auto !important;
+        transform: none !important;
+        z-index: 1002 !important;
+        overflow-y: auto;
+        display: block !important;
+    }
+    body.dark-mode .filter-sidebar[style*="position: fixed"] {
+        background: #23272f;
+    }
+}
+/* Sidebar filtro categoria prodotti */
+.filter-sidebar {
+    background: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    padding: 2vw 1.2vw 1.2vw 1.2vw;
+    width: min(320px, 24vw);
+    min-width: 180px;
+    max-width: 98vw;
+    position: absolute;
+    left: max(40px, 10vw);
+    top: -2vh;
+    transform: translateY(-20%);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.2vw;
+    z-index: 10;
+    box-sizing: border-box;
+    transition: width 0.2s, left 0.2s, padding 0.2s;
+}
+
+@media (max-width: 900px) {
+    .filter-sidebar {
+        position: static;
+        width: 100%;
+        min-width: 0;
+        margin-bottom: 18px;
+        left: unset;
+        top: unset;
+        transform: none;
+        padding: 18px 10px 10px 10px;
+        gap: 10px;
+    }
+}
+.filter-sidebar label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+}
+.filter-sidebar select {
+    padding: 7px 10px;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    font-size: 1em;
+    background: #fff;
+    color: #222;
+    margin-top: 4px;
+}
+body.dark-mode .filter-sidebar {
+    background: #23272f;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+body.dark-mode .filter-sidebar label {
+    color: #fff;
+}
+body.dark-mode .filter-sidebar select {
+    background: #181b20;
+    color: #fff;
+    border: 1px solid #444;
+}
